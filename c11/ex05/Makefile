@@ -7,7 +7,7 @@ CPLAG = -Wall -Wextra -Werror
 RM = rm -f
 
 # source file
-SRCS = do-op.c
+SRCS = do-op.c operator.c
 OBJS = $(SRCS:.c=.o)
 
 # make library

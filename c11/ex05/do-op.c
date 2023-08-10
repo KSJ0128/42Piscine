@@ -6,21 +6,17 @@
 /*   By: seojkim <ksj01128@naver.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:07:54 by seojkim           #+#    #+#             */
-/*   Updated: 2023/08/10 17:59:08 by seojkim          ###   ########.fr       */
+/*   Updated: 2023/08/10 21:38:10 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	doop_len(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+int	plus(int va1ue1, int value2);
+int	minus(int va1ue1, int value2);
+int	multi(int va1ue1, int value2);
+int	divide(int va1ue1, int value2);
+int	modulo(int va1ue1, int value2);
 
 void	ft_putnbr(int nb)
 {
@@ -76,51 +72,63 @@ int	ft_atoi(char *str)
 	return (num * minus);
 }
 
-void	calculate(char *v1, char op, char *v2)
+int	calculate(int a, int b, int operation)
 {
-	int	result;
-	int	value1;
-	int	value2;
+	int	(*operations[5])(int, int);
 
-	value1 = ft_atoi(v1);
-	value2 = ft_atoi(v2);
-	if (op == '+')
-		result = value1 + value2;
-	else if (op == '-')
-		result = value1 - value2;
-	else if (op == '*')
-		result = value1 * value2;
-	else if (op == '/')
-		result = value1 / value2;
-	else
-		result = value1 % value2;
-	ft_putnbr(result);
+	operations[0] = plus;
+	operations[1] = minus;
+	operations[2] = multi;
+	operations[3] = divide;
+	operations[4] = modulo;
+	return ((*operations[operation])(a, b));
+}
+
+int	get_operation(char *operator)
+{
+	if (operator[1] != '\0')
+	{
+		write(1, "0\n", 2);
+		return (-1);
+	}
+	if (operator[0] == '+')
+		return (0);
+	if (operator[0] == '-')
+		return (1);
+	if (operator[0] == '*')
+		return (2);
+	if (operator[0] == '/')
+		return (3);
+	if (operator[0] == '%')
+		return (4);
+	write(1, "0\n", 2);
+	return (-1);
 }
 
 int	main(int argc, char **argv)
 {
-	char	*v1;
-	char	*v2;
-	char	op;
+	int	op;
+	int	result;
 
+	result = 0;
 	if (argc != 4)
 		return (0);
-	v1 = argv[1];
-	v2 = argv[3];
-	op = *argv[2];
-	if (!(op == '+' || op == '-' || op == '*' || op == '/' || op == '%'))
-		write(1, "0", 1);
-	else if (doop_len(argv[2]) != 1)
-		write(1, "0", 1);
-	else if ((op == '/' || op == '%') && *v2 == '0')
+	op = get_operation(argv[2]);
+	if (op == -1)
+		return (0);
+	else if (op == 3 && ft_atoi(argv[3]) == 0)
 	{
-		if (op == '/')
-			write(1, "Stop: division by zero", 22);
-		else
-			write(1, "Stop: modulo by zero", 20);
+		write(1, "Stop : division by zero\n", 24);
+		return (0);
+	}
+	else if (op == 4 && ft_atoi(argv[3]) == 0)
+	{
+		write(1, "Stop : modulo by zero\n", 22);
+		return (0);
 	}
 	else
-		calculate(v1, op, v2);
+		result = calculate(ft_atoi(argv[1]), ft_atoi(argv[3]), op);
+	ft_putnbr(result);
 	write(1, "\n", 1);
 	return (0);
 }

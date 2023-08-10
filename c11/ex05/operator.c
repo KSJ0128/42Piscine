@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   operator.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seojkim <ksj01128@naver.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 17:12:18 by seojkim           #+#    #+#             */
-/*   Updated: 2023/08/10 21:24:01 by seojkim          ###   ########.fr       */
+/*   Created: 2023/08/10 19:36:47 by seojkim           #+#    #+#             */
+/*   Updated: 2023/08/10 21:28:50 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_sort(int *tab, int length, int (*f)(int, int))
+int	plus(int value1, int value2)
 {
-	int	ascend;
-	int	descend;
-	int	i;
+	return (value1 + value2);
+}
 
-	ascend = 0;
-	descend = 0;
-	i = 0;
-	while (i + 1 < length)
-	{
-		if (f(tab[i], tab[i + 1]) <= 0)
-			ascend++;
-		if (f(tab[i], tab[i + 1]) >= 0)
-			descend++;
-		i++;
-	}
-	if (ascend + 1 == length || descend + 1 == length)
-		return (1);
-	if (length == 0)
-		return (1);
-	return (0);
+int	minus(int value1, int value2)
+{
+	return (value1 - value2);
+}
+
+int	multi(int value1, int value2)
+{
+	return (value1 * value2);
+}
+
+int	divide(int value1, int value2)
+{
+	return (value1 / value2);
+}
+
+int	modulo(int value1, int value2)
+{
+	return (value1 % value2);
 }
