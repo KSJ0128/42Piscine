@@ -6,7 +6,7 @@
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:17:03 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/06 20:30:06 by seojkim          ###   ########.fr       */
+/*   Updated: 2023/11/08 00:40:55 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*ft_strdup2(char *src, int size)
 	dup[i] = '\0';
 	return (dup);
 }
+
 int	word_count(char *str, char c)
 {
 	int	i;
@@ -38,16 +39,16 @@ int	word_count(char *str, char c)
 
 	i = 0;
 	cnt = 0;
-	sep = -1;
+	sep = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == c)
-			sep = 1;
+			sep = 0;
 		else if (str[i] != c)
 		{
-			if (sep == -1 || sep == 1)
+			if (sep == 0)
 				cnt++;
-			sep = 0;
+			sep = 1;
 		}
 		i++;
 	}
@@ -81,14 +82,12 @@ char	**ft_split(char *str, char c)
 	int		word;
 	int		str_len;
 
-	str_len = 0;
-	while (str[str_len])
-		str_len++;
 	word = word_count(str, c);
 	split = (char **)malloc(sizeof(char *) * (word + 1));
 	if (split == NULL)
 		return (0);
+	str_len = ft_strlen(str);
 	insert_word(str, c, split, str_len);
-	split[word] = 0;
+	split[word] = '\0';
 	return (split);
 }

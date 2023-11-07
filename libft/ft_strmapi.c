@@ -6,7 +6,7 @@
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 20:06:18 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/06 16:27:56 by seojkim          ###   ########.fr       */
+/*   Updated: 2023/11/07 13:35:17 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	s_len = ft_strlen(s);
-	if (s_len == 0)
-		return (0);
 	new_str = (char *)malloc(s_len + 1);
+	if (new_str == NULL)
+		return (0);
 	i = 0;
-	while (s[i] != '\0')
+	while (i < s_len)
 	{
 		new_str[i] = f(i, s[i]);
 		i++;
 	}
+	new_str[s_len] = '\0';
 	return (new_str);
 }

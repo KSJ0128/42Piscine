@@ -6,7 +6,7 @@
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:04:18 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/06 15:32:19 by seojkim          ###   ########.fr       */
+/*   Updated: 2023/11/07 13:27:47 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_lstsize(t_list *lst)
 	int		len;
 
 	len = 1;
-	node = *lst;
+	node = lst;
 	while(node->next)
 	{
 		node = node->next;

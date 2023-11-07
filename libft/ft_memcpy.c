@@ -6,7 +6,7 @@
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 16:43:18 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/06 16:35:58 by seojkim          ###   ########.fr       */
+/*   Updated: 2023/11/07 16:45:51 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,5 @@ void	*ft_memcpy(void *dst, const void *src, unsigned int n)
 	}
 	return (dst);
 }
+// 1. n이 src 길이보다 긴 경우
+// 2. dest 길이가 n보다 짧은 경우

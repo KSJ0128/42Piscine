@@ -6,7 +6,7 @@
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:03:51 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/06 15:30:21 by seojkim          ###   ########.fr       */
+/*   Updated: 2023/11/07 13:29:33 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ft_lstiter(t_list *lst, void(*f)(void *))
 {
 	t_list	*node;
-	
-	node = *lst;
+
+	node = lst;
 	while(node->next)
 	{
 		node->content = f(node->content);

@@ -6,7 +6,7 @@
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:03:30 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/06 15:33:04 by seojkim          ###   ########.fr       */
+/*   Updated: 2023/11/07 13:26:07 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_lstclear(t_list **lst, void(*del)(void *))
 	node = *lst;
 	while(node->next != 0)
 	{
-		ft_lstdelone(node);
+		ft_lstdelone(node, del);
 		node = node->next;
 	}
 }
