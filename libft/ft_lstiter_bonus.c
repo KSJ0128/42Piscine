@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 15:03:19 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/07 13:24:14 by seojkim          ###   ########.fr       */
+/*   Created: 2023/11/06 15:03:51 by seojkim           #+#    #+#             */
+/*   Updated: 2023/11/08 20:47:58 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*node;
 
-	node = *lst;
-	while(node->next)
+	node = lst;
+	if (lst == NULL)
+		return ;
+	while (node->next != NULL)
+	{
+		f(node->content);
 		node = node->next;
-	node->next = new;
+	}
+	f(node->content);
 }

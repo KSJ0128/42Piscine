@@ -6,13 +6,13 @@
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:10:14 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/07 15:07:19 by seojkim          ###   ########.fr       */
+/*   Updated: 2023/11/08 17:11:03 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int trans_size(int n)
+int	trans_size(int n)
 {
 	int	i;
 	int	sign;
@@ -32,9 +32,9 @@ int trans_size(int n)
 	return (sign + i + 1);
 }
 
-char *trans_to_char(int n, int t_size)
+char	*trans_to_char(int n, int t_size)
 {
-	char *num;
+	char	*num;
 
 	num = (char *)malloc(t_size);
 	if (num == NULL)

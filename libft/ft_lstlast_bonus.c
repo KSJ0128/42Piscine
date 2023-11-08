@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 15:04:18 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/07 13:27:47 by seojkim          ###   ########.fr       */
+/*   Created: 2023/11/06 15:03:57 by seojkim           #+#    #+#             */
+/*   Updated: 2023/11/08 17:07:00 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*node;
-	int		len;
 
-	len = 1;
 	node = lst;
-	while(node->next)
-	{
+	if (lst == NULL)
+		return (0);
+	while (node->next != NULL)
 		node = node->next;
-		len++;
-	}
-	return (len);
+	return (node);
 }

@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 15:03:25 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/06 15:31:11 by seojkim          ###   ########.fr       */
+/*   Created: 2023/11/06 15:04:11 by seojkim           #+#    #+#             */
+/*   Updated: 2023/11/08 21:10:50 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_list	*ft_lstnew(void *content)
 {
-	new->next = *lst;
+	t_list	*node;
+
+	node = (t_list *)malloc(sizeof(t_list));
+	if (node == NULL)
+		return (0);
+	node->content = content;
+	node->next = 0;
+	return (node);
 }

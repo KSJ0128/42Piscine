@@ -6,7 +6,7 @@
 /*   By: seojkim <seojkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:17:03 by seojkim           #+#    #+#             */
-/*   Updated: 2023/11/08 00:40:55 by seojkim          ###   ########.fr       */
+/*   Updated: 2023/11/08 15:00:25 by seojkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,6 @@ char	**ft_split(char *str, char c)
 		return (0);
 	str_len = ft_strlen(str);
 	insert_word(str, c, split, str_len);
-	split[word] = '\0';
+	split[word] = "\0";
 	return (split);
 }
